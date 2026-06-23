@@ -1,0 +1,236 @@
+𝟭. 𝗗𝗗𝗼𝗦 𝗣𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻 𝗣𝗹𝗮𝗻𝘀
+Simple Explanation
+
+DDoS (Distributed Denial of Service) attack me attacker bahut saare systems se ek sath traffic bhejkar application ya website ko down karne ki koshish karta hai.
+
+Azure DDoS Protection service is attack se protect karti hai.
+
+𝗧𝘆𝗽𝗲𝘀
+1. DDoS IP Protection
+Single Public IP ko protect karta hai.
+Low-cost option hai.
+2. DDoS Network Protection
+Pure Virtual Network (VNet) ko protect karta hai.
+Multiple public IPs cover karta hai.
+Enterprise customers use karte hain.
+Example
+
+Agar tumhari website Azure VM pe chal rahi hai aur kisi ne 10 lakh requests per second bhej di to DDoS Protection malicious traffic ko filter kar degi.
+
+𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀
+
+Q1. What is DDoS?
+
+Answer:
+DDoS is an attack where multiple compromised systems flood a target with traffic, making the service unavailable.
+
+Q2. Difference between DDoS IP Protection and Network Protection?
+IP Protection	Network Protection
+Single Public IP	Entire VNet
+Cheaper	More Features
+Small workloads	Enterprise workloads
+Q3. At which level does Azure DDoS Protection work?
+
+Answer:
+It works at Layer 3 and Layer 4 (Network and Transport Layer).
+
+𝟮. 𝗔𝘇𝘂𝗿𝗲 𝗙𝗶𝗿𝗲𝘄𝗮𝗹𝗹
+Simple Explanation
+
+Azure Firewall ek managed firewall service hai jo incoming aur outgoing traffic ko control karti hai.
+
+Features
+Stateful Firewall
+Centralized Security
+Application Rules
+Network Rules
+NAT Rules
+Example
+
+Sirf port 443 allow karna hai aur baki sab block karna hai.
+
+𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀
+Q1. What is Azure Firewall?
+
+Answer:
+Azure Firewall is a cloud-native managed security service that filters inbound and outbound traffic based on defined rules.
+
+Q2. Difference between NSG and Azure Firewall?
+NSG	Azure Firewall
+Subnet/NIC level	Network level
+L3/L4	L3/L4/L7
+Basic filtering	Advanced filtering
+Free	Paid
+Q3. What are Firewall Rules?
+
+Answer:
+
+Network Rules
+IP + Port filtering
+Application Rules
+URL/FQDN filtering
+NAT Rules
+Port forwarding
+
+𝟯. 𝗜𝗣 𝗚𝗿𝗼𝘂𝗽𝘀
+Simple Explanation
+
+IP Groups multiple IP addresses ko ek logical group me organize karte hain.
+
+Example
+
+Without IP Group:
+
+10.0.1.0/24
+10.0.2.0/24
+10.0.3.0/24
+
+With IP Group:
+
+Production-Servers
+
+Ab firewall rule me group ka naam use kar sakte ho.
+
+𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀
+Q1. What are IP Groups?
+
+Answer:
+IP Groups allow administrators to group and manage multiple IP addresses together for easier rule management.
+
+Q2. Why use IP Groups?
+
+Answer:
+To simplify firewall rule management and improve scalability.
+
+Q3. Can IP Groups be used with Azure Firewall?
+
+Answer:
+Yes, Azure Firewall supports IP Groups.
+
+4. Network Security Groups (NSG)
+Simple Explanation
+
+NSG Azure ka virtual firewall hai.
+
+Ye control karta hai:
+
+Inbound Traffic
+Outbound Traffic
+
+at:
+
+Subnet Level
+NIC Level
+Example
+
+Allow:
+
+Port 80
+Port 443
+
+Block:
+
+Port 3389
+NSG Components
+Priority
+
+Small number = Higher Priority
+
+Example:
+
+100 Allow HTTP
+200 Allow HTTPS
+300 Deny All
+
+𝗜𝗻𝘁𝗲𝗿𝘃𝗶𝗲𝘄 𝗤𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀
+
+Q1. What is NSG?
+
+Answer:
+Network Security Group is used to filter inbound and outbound traffic for Azure resources.
+
+Q2. Can one NSG be attached to multiple subnets?
+
+Answer:
+Yes.
+
+Q3. Difference between NSG and Firewall?
+
+Answer:
+NSG provides basic packet filtering while Azure Firewall provides centralized and advanced traffic inspection.
+
+Q4. What happens if NSG is applied on both Subnet and NIC?
+
+Answer:
+Both rules are evaluated and traffic must be allowed by both.
+
+5. Web Application Firewall (WAF)
+Simple Explanation
+
+WAF web applications ko protect karta hai.
+
+Ye Layer 7 pe kaam karta hai.
+
+Protects against:
+
+SQL Injection
+Cross Site Scripting (XSS)
+OWASP Top 10 Attacks
+Example
+
+Attacker URL me SQL query inject kare:
+
+' OR 1=1 --
+
+WAF request ko block kar dega.
+
+WAF Supported Services
+Azure Application Gateway
+Azure Front Door
+Azure CDN
+Interview Questions
+Q1. What is WAF?
+
+Answer:
+Web Application Firewall protects web applications from Layer 7 attacks such as SQL Injection and XSS.
+
+Q2. Difference between Firewall and WAF?
+Firewall	WAF
+Layer 3/4	Layer 7
+Network Traffic	HTTP/HTTPS Traffic
+IP & Ports	Web Requests
+Q3. What is OWASP?
+
+Answer:
+OWASP (Open Web Application Security Project) provides a list of common web application vulnerabilities known as OWASP Top 10.
+
+Q4. Where can WAF be deployed?
+
+Answer:
+Application Gateway, Front Door, and CDN.
+
+Interview Me 30-Second Summary
+
+👉 NSG = Subnet/NIC level basic traffic filtering.
+
+👉 Azure Firewall = Centralized managed firewall with advanced filtering.
+
+👉 IP Groups = Multiple IPs ko group karke firewall rules simplify karna.
+
+👉 WAF = Web application ko SQL Injection, XSS aur OWASP attacks se protect karna.
+
+👉 DDoS Protection = Massive traffic attacks se Azure resources ko protect karna.
+
+Real Scenario Answer (Bahut Puchha Jata Hai)
+
+"How will you secure an internet-facing application in Azure?"
+
+Answer:
+
+Enable DDoS Protection on VNet.
+Use Application Gateway with WAF.
+Place VMs in private subnet.
+Apply NSG rules on subnet.
+Use Azure Firewall for centralized traffic control.
+Store secrets in Key Vault.
+Enable monitoring through Azure Monitor and Defender for Cloud.
